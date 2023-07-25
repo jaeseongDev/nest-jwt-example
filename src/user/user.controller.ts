@@ -9,6 +9,7 @@ import {
 import { UserService } from './user.service';
 import { SignInRequestDto } from './dto/signIn.request.dto';
 import { SignUpRequestDto } from './dto/signUp.request.dto';
+import { JwtAuthGuard } from '../auth/jwtPassport/jwtAuth.guard';
 
 @Controller('users')
 export class UserController {
@@ -25,6 +26,7 @@ export class UserController {
   }
 
   @Get('me')
+  @UseGuards(JwtAuthGuard)
   getMyInfo() {
     const userId = 1; // TODO : 수정 필요
     return this.userService.getMyInfo(userId);

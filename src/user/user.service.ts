@@ -4,7 +4,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { SignUpRequestDto } from './dto/signUp.request.dto';
 import { SignInRequestDto } from './dto/signIn.request.dto';
-import { JwtService } from '@nestjs/jwt';
 import { AuthService } from '../auth/auth.service';
 
 @Injectable()
@@ -43,6 +42,14 @@ export class UserService {
     return await this.userRepository.findOne({
       where: {
         id: userId,
+      },
+    });
+  }
+
+  async findOneById(id: number) {
+    return await this.userRepository.findOne({
+      where: {
+        id,
       },
     });
   }

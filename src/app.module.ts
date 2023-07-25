@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
+import { JwtPassportModule } from './common/jwtPassport/jwtPassport.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { UserModule } from './user/user.module';
       logging: true,
     }),
     UserModule,
+    JwtPassportModule,
   ],
   controllers: [],
   providers: [],
