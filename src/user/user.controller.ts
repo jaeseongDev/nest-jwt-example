@@ -20,8 +20,8 @@ export class UserController {
   }
 
   @Post('sign-in')
-  signIn(@Body() singInRequestDto: SignInRequestDto) {
-    return this.userService.signIn(singInRequestDto);
+  signIn(@Body() signInRequestDto: SignInRequestDto) {
+    return this.userService.signIn(signInRequestDto);
   }
 
   @Get('me')
